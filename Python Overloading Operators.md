@@ -31,9 +31,9 @@ What Python actually allows is operator overloading. Since we have introduced op
 **An example for calling an operator without default implementation**
 ```
 class MyClass:
-    def __init__(self,x=0,y=0): # this is constructor for class MyClass,x=0 means
-        self.x = x              # if we didn't give x when we creating an object, 
-        self.y = y              # the default value for x is 0. Same logic to y
+        def __init__(self, x=0, y=0): # this is constructor for class MyClass, x=0 means
+        self.x = x                    # if we didn't give x when we creating an object, 
+        self.y = y                    # the default value for x is 0. Same logic to y.
 
 obj1 = MyClass(10,20)
 obj2 = MyClass(10,20)
