@@ -22,11 +22,11 @@ print(c) # built-in operator print with an str variable as input
 # this will output Hello World
 ```
 ### What is overloading
-A same name function has different effects(results) for different classes(inputs) is overloading.
+In the perspective of an object oriented programming language, two or more methods with the same name but different types of arguments in a single class is called overloading.
 
 However Python does not allow two methods with same name. To achieve that goal, you can create a method with header: foo(a=None). Both foo() and foo("test") will work. We won't discuss this further since it is out of topic.
 
-What Python actually allows is operator overloading. Since we have introduced operators above and operators have different effects for different classes, now you may have a new question: Can I use these operators for my own classes? The answer is that you can use some operators for your defined class like `==` because they have default implementations, but many other operators need to be overloaded by yourself. Also, all built-in operators can be overloaded, but we can not create new operator.
+What Python actually allows is operator overloading. Since we have introduced operators above and operators have different effects for different classes, now you may have a new question: Can I use these operators for user defined classes? The answer is that you can use some operators for your defined class like `==` because they have default implementations, but many other operators need to be overloaded by yourself. Also, all built-in operators can be overloaded, but we can not create new operator.
 
 **An example for calling an operator without default implementation**
 ```
