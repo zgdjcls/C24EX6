@@ -26,14 +26,16 @@ In the perspective of an object oriented programming language, two or more metho
 
 However Python does not allow two methods with same name. To achieve that goal, you can create a method with header: foo(a=None). Both foo() and foo("test") will work. We won't discuss this further since it is out of topic.
 
-What Python actually allows is operator overloading. Since we have introduced operators above and operators have different effects for different classes, now you may have a new question: Can I use these operators for user defined classes? The answer is that you can use some operators for your defined class like `==` because they have default implementations, but many other operators need to be overloaded by yourself. Also, all built-in operators can be overloaded, but we can not create new operator.
+Since we have introduced operators above and operators have different effects for different classes, so Python actually allow us to write same operator for different classes, when we call an operator for a specific object, it calls the operator for this object's class. Having same operator name for different classes allow us to "overload" operator. To make thing easy, we still use overload to name this process.
+
+What Python actually allows is operator overloading. Now you may have a new question: Can I use these operators for user defined classes? The answer is that you can use some operators for your defined class like `==` because they have default implementations, but many other operators need to be overloaded by yourself. Also, all built-in operators can be overloaded, but we can not create new operator.
 
 **An example for calling an operator without default implementation**
 ```
 class MyClass:
-        def __init__(self, x=0, y=0): # this is constructor for class MyClass, x=0 means
-        self.x = x                    # if we didn't give x when we creating an object, 
-        self.y = y                    # the default value for x is 0. Same logic to y.
+    def __init__(self,x=0,y=0): # this is constructor for class MyClass,x=0 means
+        self.x = x              # if we didn't give x when we creating an object, 
+        self.y = y              # the default value for x is 0. Same logic to y
 
 obj1 = MyClass(10,20)
 obj2 = MyClass(10,20)
@@ -154,7 +156,7 @@ print(obj1 - 42)
 (-10,0)
 Not MyClass objects
 ```
-`__rsub__` is a very interesting implementation, after implmenting this function, you can subtract 2 objects with different classes. Again, we don't have default implementation for this one. Remember, in `x-y`, if x and y are not in the same class, you have to implement `__rsub__` for y's class and put y **after** `-` to call `__rsub__`; If x and y are in the same class, we will call `__sub__`. If `__sub__` is not defined, it won't call `__rsub__` for the same class objects but gives you an error. 
+`__rsub__` is a very interesting implementation, after implmenting this function, you can subtract 2 objects with different classes. Again, we don't have default implementation for this one. Remember, in `x-y`, if x and y are not in the same class, you have to implement `__rsub__` for y's class and put y **after** `-` to call `__rsub__`; If x and y are in the same class, we will call `__sub__` instead of `__rsub__`. If `__sub__` is not defined, it won't call `__rsub__` for the same class objects but gives you an error. Notice that, the argument 'other' here is the object before '-'.
 ```
 def __rsub__(self,other):
     return other-self.x-self.y
