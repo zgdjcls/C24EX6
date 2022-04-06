@@ -1,0 +1,6 @@
+operators.py contains MyClass where we overloaded all necessert operators.
+demo.py contains all the code in the lecture. Every single function in demo.py correspond to every section in the lecture. By default running the following command:
+
+python3 demo.py
+
+Will go through all sections.
