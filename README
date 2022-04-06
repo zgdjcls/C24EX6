@@ -4,3 +4,4 @@ demo.py contains all the code in the lecture. Every single function in demo.py c
 python3 demo.py
 
 Will go through all sections.
+If you have anything want to test, feel free to add code after example_rsub()
