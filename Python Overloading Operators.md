@@ -156,7 +156,7 @@ print(obj1 - 42)
 (-10,0)
 Not MyClass objects
 ```
-`__rsub__` is a very interesting implementation, after implmenting this function, you can subtract 2 objects with different classes. Again, we don't have default implementation for this one. Remember, in `x-y`, if x and y are not in the same class, you have to implement `__rsub__` for y's class and put y **after** `-` to call `__rsub__`; If x and y are in the same class, we will call `__sub__` instead of `__rsub__`. If `__sub__` is not defined, it won't call `__rsub__` for the same class objects but gives you an error. Notice that, the argument 'other' here is the object before '-'.
+`__rsub__` is a very interesting implementation, after implmenting this function, you can subtract 2 objects with different classes. Again, we don't have default implementation for this one. Remember, in `x-y`, if x and y are not in the same class, you have to implement `__rsub__` for y's class and put y **after** `-` to call `__rsub__`; If x and y are in the same class, we will call `__sub__` instead of `__rsub__`. If `__sub__` is not defined, it won't call `__rsub__` for the same class objects but gives you an error. Notice that, the argument 'other' here is the object **before** '-'.
 ```
 def __rsub__(self,other):
     return other-self.x-self.y
